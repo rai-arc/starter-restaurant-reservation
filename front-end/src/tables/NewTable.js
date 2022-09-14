@@ -3,13 +3,13 @@ import { useHistory } from "react-router";
 import { createTable } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 
-function NewReservation() {
+function NewTable() {
   const history = useHistory();
   const [formData, setFormData] = useState({
     table_name: "",
     capacity: 0,
   });
-  const [newReservationError, setNewReservationError] = useState(null);
+  const [newTableError, setNewTableError] = useState(null);
 
   const handleInputChange = (event) =>
     setFormData({
@@ -19,16 +19,15 @@ function NewReservation() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setNewReservationError(null);
+    setNewTableError(null);
     try {
       formData.capacity = Number(formData.capacity);
       const newTable = await createTable(formData);
       console.log(newTable);
       console.log(newTable.error);
-      const formDate = formData.reservation_date;
-      history.push(`/dashboard?date=${formDate}`);
+      history.push(`/dashboard`);
     } catch (error) {
-      if (error.name !== "AbortError") setNewReservationError(error);
+      if (error.name !== "AbortError") setNewTableError(error);
     }
   }
 
@@ -58,7 +57,7 @@ function NewReservation() {
             onChange={handleInputChange}
           />
           <div>
-            <ErrorAlert error={newReservationError} />
+            <ErrorAlert error={newTableError} />
             <button className="btn btn-primary mr-1" type="submit">
               Submit
             </button>
@@ -76,4 +75,4 @@ function NewReservation() {
   );
 }
 
-export default NewReservation;
+export default NewTable;
