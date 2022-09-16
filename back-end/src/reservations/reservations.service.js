@@ -5,15 +5,15 @@ function list() {
     .select("*")
     .orderBy("reservation_date", "asc")
     .orderBy("reservation_time", "asc");
-}  
+}
 
 function listToday(todaysDate) {
-    return knex("reservations")
-      .select("*")
-      .where({ reservation_date: todaysDate })
-      .whereNot({ status: "finished" })
-      .orderBy("reservation_time", "asc");
-  }
+  return knex("reservations")
+    .select("*")
+    .where({ reservation_date: todaysDate })
+    .whereNot({ status: "finished" })
+    .orderBy("reservation_time", "asc");
+}
 
 function search(mobile_number) {
   return knex("reservations")
@@ -27,7 +27,7 @@ function search(mobile_number) {
 function read(reservationId) {
   return knex("reservations")
     .select("*")
-    .where({ "reservation_id": reservationId })
+    .where({ reservation_id: reservationId })
     .first();
 }
 
@@ -42,7 +42,7 @@ function updateStatus(updatedStatus) {
   return knex("reservations")
     .where({ reservation_id: updatedStatus.reservation_id })
     .update(updatedStatus, "*")
-    .then((updatedRecords) => updatedRecords[0])
+    .then((updatedRecords) => updatedRecords[0]);
 }
 
 function edit(editedReservation) {
@@ -62,4 +62,3 @@ module.exports = {
   search,
   edit,
 };
-  

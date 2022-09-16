@@ -12,12 +12,10 @@ export default function Search() {
   const [noResults, setNoResults] = useState("Please enter a number");
   const history = useHistory();
 
-  const handleInputChange = (event) =>
-    setMobileNumber(event.target.value);
+  const handleInputChange = (event) => setMobileNumber(event.target.value);
 
   function loadReservations() {
     const abortController = new AbortController();
-    setReservations(["Loading reservations..."]);
     setReservationsError(null);
     listReservations({ mobile_number }, abortController.signal)
       .then(setReservations)
@@ -32,14 +30,14 @@ export default function Search() {
   };
 
   const handleCancel = async (reservation) => {
-    console.log(reservation)
+    console.log(reservation);
     if (
       window.confirm(
         "Do you want to cancel this reservation? This cannot be undone."
       )
     ) {
       try {
-        await updateStatus(reservation.reservation_id, "cancelled")
+        await updateStatus(reservation.reservation_id, "cancelled");
         history.go(0);
       } catch (err) {
         setCancelError(err);
@@ -49,32 +47,35 @@ export default function Search() {
 
   const results = reservations.length ? (
     <>
-        <h2>Search Results:</h2>
-        {eachReservation(reservations, handleCancel, cancelError)}</>
+      <div className="d-flex justify-content-center row">
+        {eachReservation(reservations, handleCancel, cancelError)}
+      </div>
+    </>
   ) : (
-    <>{noResults}</>
-  )
+    <div className="text-center">{noResults}</div>
+  );
 
   return (
     <main>
-      <div>
-        <h2>Search</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="search">Mobile Number</label>
-          <input
-            id="mobile_number"
-            name="mobile_number"
-            type="phone"
-            onChange={handleInputChange}
-            required
-          />
+      <div className="d-flex justify-content-center row">
+        <div className="col-md-4 text-center">
+          <h1>Search</h1>
+          <form className="d-flex flex-column" onSubmit={handleSubmit}>
+            <label className="search">Please Enter Mobile Number</label>
+            <input
+              id="mobile_number"
+              name="mobile_number"
+              type="phone"
+              onChange={handleInputChange}
+              required
+            />
+            <button type="submit">Find</button>
+          </form>
         </div>
-        <button type="submit">Find</button>
-      </form>
+      </div>
+      <h2 className="text-center my-3">Search Results:</h2>
       {results}
-      <ErrorAlert error={reservationsError}/>
+      <ErrorAlert error={reservationsError} />
     </main>
   );
 }
