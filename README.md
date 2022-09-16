@@ -53,7 +53,7 @@ The seating page allows users to seat a reservation at any of the restaurant's p
 ---
 ## Search
 
-![Search Page](https://i.imgur.com/qjcrUfs.png)
+![Search Page](https://i.imgur.com/1UUl2N6.png)
 
 The search page allows users to search a customer's phone number to get their reservation information. It allows for partial matches for easier searching.
 
