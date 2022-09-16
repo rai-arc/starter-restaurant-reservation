@@ -20,6 +20,7 @@ function NewTable() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    const abortController = new AbortController();
     setNewTableError(null);
     try {
       formData.capacity = Number(formData.capacity);
@@ -30,6 +31,7 @@ function NewTable() {
     } catch (error) {
       if (error.name !== "AbortError") setNewTableError(error);
     }
+    return () => abortController.abort();
   }
 
   return (
