@@ -24,9 +24,7 @@ function NewTable() {
     setNewTableError(null);
     try {
       formData.capacity = Number(formData.capacity);
-      const newTable = await createTable(formData);
-      console.log(newTable);
-      console.log(newTable.error);
+      await createTable(formData);
       history.push(`/dashboard`);
     } catch (error) {
       if (error.name !== "AbortError") setNewTableError(error);
