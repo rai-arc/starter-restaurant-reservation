@@ -40,7 +40,7 @@ function NewTable() {
       <div className="d-md-flex mb-3 justify-content-center">
         <form onSubmit={handleSubmit} className="col-sm-4">
           <div className="form-group">
-            <label for="table_name" className="col-form-label">
+            <label htmlFor="table_name" className="col-form-label">
               Table name
             </label>
             <input
@@ -52,7 +52,7 @@ function NewTable() {
               className="form-control"
               placeholder="Table name"
             />
-            <label for="capacity" className="col-form-label">
+            <label htmlFor="capacity" className="col-form-label">
               Capacity
             </label>
             <input
