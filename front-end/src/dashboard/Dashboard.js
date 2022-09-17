@@ -122,12 +122,7 @@ function Dashboard({ date }) {
         <ErrorAlert error={tablesError} />
         <table className="table table-striped table-bordered table-bg text-light">
           <thead>
-            <tr>
-              <th scope="col">Table name</th>
-              <th scope="col">Capacity</th>
-              <th scope="col">Status</th>
-              <th scope="col">Finish?</th>
-            </tr>
+            <tr><th scope="col">Table name</th><th scope="col">Capacity</th><th scope="col">Status</th><th scope="col">Finish?</th></tr>
           </thead>
           <tbody>{eachTable(tables, handleFinish, finishError)}</tbody>
         </table>

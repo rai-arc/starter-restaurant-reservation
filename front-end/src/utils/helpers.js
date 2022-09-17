@@ -94,7 +94,7 @@ export function eachTable(tables, handleFinish, finishError) {
       <>
         <td>
           <p data-table-id-status={`${table.table_id}`}>Free</p>
-        </td>{" "}
+        </td>
         <td>
           <button
             data-table-id-finish={table.table_id}
