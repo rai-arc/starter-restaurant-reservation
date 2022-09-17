@@ -13,7 +13,7 @@ export default function FormReservation({handleSubmit, formData, setFormData}) {
   return (
     <form onSubmit={handleSubmit} className="col-sm-4">
       <div className="form-group">
-        <label for="first_name" className="col-form-label">
+        <label htmlFor="first_name" className="col-form-label">
           First name
         </label>
         <input
@@ -26,7 +26,7 @@ export default function FormReservation({handleSubmit, formData, setFormData}) {
           className="form-control"
           placeholder="First name"
         />
-        <label for="last_name" className="col-form-label">
+        <label htmlFor="last_name" className="col-form-label">
           Last name
         </label>
         <input
@@ -39,7 +39,7 @@ export default function FormReservation({handleSubmit, formData, setFormData}) {
           className="form-control"
           placeholder="Last name"
         />
-        <label for="mobile_number" className="col-form-label">
+        <label htmlFor="mobile_number" className="col-form-label">
           Mobile number
         </label>
         <input
@@ -53,7 +53,7 @@ export default function FormReservation({handleSubmit, formData, setFormData}) {
           className="form-control"
           placeholder="###-###-####"
         />
-        <label for="reservation_date" className="col-form-label">
+        <label htmlFor="reservation_date" className="col-form-label">
           Date of reservation
         </label>
         <input
@@ -65,7 +65,7 @@ export default function FormReservation({handleSubmit, formData, setFormData}) {
           value={formData.reservation_date}
           className="form-control"
         />
-        <label for="reservation_time" className="col-form-label">
+        <label htmlFor="reservation_time" className="col-form-label">
           Time of reservation
         </label>
         <input
@@ -77,7 +77,7 @@ export default function FormReservation({handleSubmit, formData, setFormData}) {
           value={formData.reservation_time}
           className="form-control"
         />
-        <label for="people" className="col-form-label">
+        <label htmlFor="people" className="col-form-label">
           Number of people in the party
         </label>
         <input

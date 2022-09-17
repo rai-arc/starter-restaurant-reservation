@@ -61,7 +61,7 @@ export function eachReservation(reservations, handleCancel, cancelError) {
     return (
       <div
         key={reservation.reservation_id}
-        className="card m-4 reservation-card text-white col-sm-2"
+        className="card m-4 reservation-card text-white"
       >
         <div className="card-body">
           <h4 className="card-title">
