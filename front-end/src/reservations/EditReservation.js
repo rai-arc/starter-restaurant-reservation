@@ -42,9 +42,7 @@ export default function EditReservation() {
     const abortController = new AbortController();
     try {
       formData.people = Number(formData.people);
-      const editedReservation = await editReservation(formData, reservation_id);
-      console.log(editedReservation);
-      console.log(editedReservation.error);
+      await editReservation(formData, reservation_id);
       const formDate = formData.reservation_date;
       history.push(`/dashboard?date=${formDate}`);
     } catch (error) {
