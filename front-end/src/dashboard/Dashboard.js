@@ -46,7 +46,6 @@ function Dashboard({ date }) {
 
   //This handler brings up a confirmation window to set a reservation to finished and a free a table
   const handleFinish = async (table) => {
-    console.log(table);
     if (
       window.confirm(
         "Is this table ready to seat new guests? This cannot be undone."
