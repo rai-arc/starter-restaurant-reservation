@@ -51,7 +51,7 @@ function ReservationSeat() {
 
   function tableOptions(tables) {
     const separateTables = tables.map((table) => (
-      <option value={table.table_id}>
+      <option key={table.table_id} value={table.table_id}>
         {table.table_name} - {table.capacity}
       </option>
     ));
@@ -84,7 +84,7 @@ function ReservationSeat() {
               onChange={handleSelectChange}
               className="mb-4"
             >
-              <option name="blank" value="" disabled selected>
+              <option name="blank" key="null" value={null}>
                 Please select a table.
               </option>
               {tableOptions(tables)}
